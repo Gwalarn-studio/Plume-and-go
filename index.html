@@ -152,8 +152,8 @@ footer nav{display:flex;flex-wrap:wrap;gap:18px}
       </div>
       <ol class="steps">
         <li><h3 data-i18n="how.1t">Choose a service</h3><p data-i18n="how.1p">Each one has a fixed price and a clear scope.</p></li>
-        <li><h3 data-i18n="how.2t">Pay securely</h3><p data-i18n="how.2p">Card, Apple Pay or PayPal through our checkout partner.</p></li>
-        <li><h3 data-i18n="how.3t">Send your brief</h3><p data-i18n="how.3p">A short form appears right after payment. Attach your file or paste your text.</p></li>
+        <li><h3 data-i18n="how.2t">Send your brief</h3><p data-i18n="how.2p">A short form opens. Paste your text and say what you need.</p></li>
+        <li><h3 data-i18n="how.3t">Pay securely</h3><p data-i18n="how.3p">By card or Apple Pay through Stripe, our payment partner.</p></li>
         <li><h3 data-i18n="how.4t">Receive it by email</h3><p data-i18n="how.4p">Within 24 hours. Ask for one free revision if anything is off.</p></li>
       </ol>
     </div>
@@ -181,7 +181,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:18px}
       </div>
       <div class="faq">
         <details><summary data-i18n="faq.1q">Which languages do you work in?</summary><p data-i18n="faq.1p">English and French, plus translation between the two.</p></details>
-        <details><summary data-i18n="faq.2q">How do I send my documents?</summary><p data-i18n="faq.2p">Right after payment you get a short form where you upload a file or paste text. No account needed.</p></details>
+        <details><summary data-i18n="faq.2q">How do I send my documents?</summary><p data-i18n="faq.2p">When you order, a short form asks you to paste your text and describe what you need. No account needed.</p></details>
         <details><summary data-i18n="faq.3q">Can I get an invoice?</summary><p data-i18n="faq.3p">Yes. A receipt is emailed after each payment, and we send an invoice on request.</p></details>
         <details><summary data-i18n="faq.4q">What if I need something bigger?</summary><p data-i18n="faq.4p">Order the service twice (for example two blocks of 500 words), or write to us for a quote.</p></details>
       </div>
@@ -205,23 +205,23 @@ footer nav{display:flex;flex-wrap:wrap;gap:18px}
 <div class="toast" id="toast" role="status" hidden></div>
 
 <script>
-/* Stripe Payment Links go here once the Stripe account exists.
-   Format: https://buy.stripe.com/XXXXXXXX  (empty = "coming soon" toast) */
+/* Order links go to the payments worker (brief form, then Stripe).
+   Format: https://<worker>/commander/<id>  (?lang= is added; empty = "coming soon" toast) */
 const CHECKOUT = { cv:"", linkedin:"", translate:"", product:"", captions:"", proof:"" };
 
 const SERVICES = [
-  { id:"cv", price:19, en:{t:"CV + cover letter", p:"Your CV rewritten for the job you want, with a matching cover letter.", f:["ATS-friendly layout","Tailored to one job offer","Word + PDF files"]},
-    fr:{t:"CV + lettre de motivation", p:"Votre CV réécrit pour le poste visé, avec une lettre de motivation assortie.", f:["Mise en page lisible par les logiciels de tri","Adapté à une offre d'emploi","Fichiers Word + PDF"]}, chip:"1 page · A4" },
+  { id:"cv", price:19, en:{t:"CV + cover letter", p:"Your CV rewritten for the job you want, with a matching cover letter.", f:["ATS-friendly layout","Tailored to one job offer","Sent by email, ready to paste"]},
+    fr:{t:"CV + lettre de motivation", p:"Votre CV réécrit pour le poste visé, avec une lettre de motivation assortie.", f:["Mise en page lisible par les logiciels de tri","Adapté à une offre d'emploi","Envoyé par e-mail, prêt à coller"]}, chip:"1 page · A4" },
   { id:"linkedin", price:15, en:{t:"LinkedIn profile", p:"A headline and About section that make recruiters stop scrolling.", f:["Headline + About section","3 experience summaries","Keyword list for search"]},
     fr:{t:"Profil LinkedIn", p:"Un titre et une section Infos qui retiennent l'attention des recruteurs.", f:["Titre + section Infos","3 résumés d'expérience","Liste de mots-clés"]}, chip:"≈ 2 600 chars" },
-  { id:"translate", price:9, en:{t:"Translation EN ↔ FR", p:"Natural translation of short texts, checked by a human.", f:["Up to 500 words","Tone kept (formal or casual)","Delivered as text or .docx"]},
-    fr:{t:"Traduction EN ↔ FR", p:"Traduction naturelle de textes courts, relue par un humain.", f:["Jusqu'à 500 mots","Ton respecté (formel ou familier)","Livré en texte ou .docx"]}, chip:"≤ 500 words", chipFr:"≤ 500 mots" },
+  { id:"translate", price:9, en:{t:"Translation EN ↔ FR", p:"Natural translation of short texts, checked by a human.", f:["Up to 500 words","Tone kept (formal or casual)","Delivered as text by email"]},
+    fr:{t:"Traduction EN ↔ FR", p:"Traduction naturelle de textes courts, relue par un humain.", f:["Jusqu'à 500 mots","Ton respecté (formel ou familier)","Livré en texte par e-mail"]}, chip:"≤ 500 words", chipFr:"≤ 500 mots" },
   { id:"product", price:12, en:{t:"Product descriptions", p:"Copy that sells, for your shop, Etsy or Amazon listings.", f:["5 products","SEO title + 80–120 words each","EN or FR"]},
     fr:{t:"Descriptions produits", p:"Des textes qui vendent, pour votre boutique, Etsy ou Amazon.", f:["5 produits","Titre SEO + 80 à 120 mots chacun","EN ou FR"]}, chip:"5 × 120 words", chipFr:"5 × 120 mots" },
   { id:"captions", price:15, en:{t:"30 social captions", p:"A month of Instagram, TikTok or LinkedIn posts in your voice.", f:["30 captions","Hashtag set per post","Ready to copy into a scheduler"]},
     fr:{t:"30 légendes réseaux", p:"Un mois de publications Instagram, TikTok ou LinkedIn avec votre ton.", f:["30 légendes","Hashtags pour chaque post","Prêtes à coller dans un planificateur"]}, chip:"30 posts" },
-  { id:"proof", price:9, en:{t:"Proofreading", p:"Spelling, grammar and clarity fixes with changes tracked.", f:["Up to 1,500 words","Tracked changes in Word","Short note on recurring errors"]},
-    fr:{t:"Relecture", p:"Orthographe, grammaire et clarté, avec modifications suivies.", f:["Jusqu'à 1 500 mots","Suivi des modifications Word","Note sur les erreurs récurrentes"]}, chip:"≤ 1,500 words", chipFr:"≤ 1 500 mots" }
+  { id:"proof", price:9, en:{t:"Proofreading", p:"Spelling, grammar and clarity fixes, with every change listed.", f:["Up to 1,500 words","Corrected text + list of changes","Short note on recurring errors"]},
+    fr:{t:"Relecture", p:"Orthographe, grammaire et clarté, avec la liste de chaque correction.", f:["Jusqu'à 1 500 mots","Texte corrigé + liste des modifications","Note sur les erreurs récurrentes"]}, chip:"≤ 1,500 words", chipFr:"≤ 1 500 mots" }
 ];
 
 const T = {
@@ -235,8 +235,8 @@ const T = {
     "svc.buy":"Commander","svc.fast":"24 h",
     "how.eyebrow":"Comment ça marche","how.title":"Quatre étapes, aucune réunion.",
     "how.1t":"Choisissez un service","how.1p":"Chacun a un prix fixe et un périmètre clair.",
-    "how.2t":"Payez en sécurité","how.2p":"Carte, Apple Pay ou PayPal via notre partenaire de paiement.",
-    "how.3t":"Envoyez votre brief","how.3p":"Un court formulaire s'affiche après le paiement. Joignez votre fichier ou collez votre texte.",
+    "how.2t":"Envoyez votre brief","how.2p":"Un court formulaire s'ouvre. Collez votre texte et dites-nous ce qu'il vous faut.",
+    "how.3t":"Payez en sécurité","how.3p":"Par carte ou Apple Pay via Stripe, notre partenaire de paiement.",
     "how.4t":"Recevez-le par e-mail","how.4p":"Sous 24 heures. Demandez une retouche gratuite si besoin.",
     "pr.eyebrow":"Notre engagement","pr.title":"Rapide ne veut pas dire bâclé.",
     "pr.1t":"En retard ? C'est gratuit.","pr.1p":"Si votre commande n'est pas livrée sous 24 heures, vous êtes remboursé et gardez le travail.",
@@ -244,7 +244,7 @@ const T = {
     "pr.3t":"Vos données restent à vous","pr.3p":"Vos fichiers servent uniquement à votre commande et sont supprimés après 30 jours.",
     "faq.title":"Questions fréquentes",
     "faq.1q":"Dans quelles langues travaillez-vous ?","faq.1p":"Français et anglais, et traduction entre les deux.",
-    "faq.2q":"Comment envoyer mes documents ?","faq.2p":"Juste après le paiement, un court formulaire vous permet d'envoyer un fichier ou de coller un texte. Aucun compte nécessaire.",
+    "faq.2q":"Comment envoyer mes documents ?","faq.2p":"Au moment de commander, un court formulaire vous demande de coller votre texte et de décrire votre besoin. Aucun compte nécessaire.",
     "faq.3q":"Puis-je avoir une facture ?","faq.3p":"Oui. Un reçu est envoyé par e-mail après chaque paiement, et une facture sur simple demande.",
     "faq.4q":"Et pour un travail plus long ?","faq.4p":"Commandez le service deux fois (par exemple deux blocs de 500 mots), ou écrivez-nous pour un devis.",
     "ft.legal":"Mentions légales","ft.terms":"CGV","ft.privacy":"Confidentialité","ft.contact":"Contact","ft.withdraw":"Se rétracter du contrat ici",
@@ -267,7 +267,7 @@ function renderCards(){
       <p>${c.p}</p>
       <ul>${c.f.map(x => `<li>${x}</li>`).join("")}</ul>
       <div class="meta"><span class="chip fast">${T[lang]["svc.fast"]}</span><span class="chip">${lang === "fr" && s.chipFr ? s.chipFr : s.chip}</span></div>
-      <a class="btn buy" href="${CHECKOUT[s.id] || "#"}" data-buy="${s.id}">${T[lang]["svc.buy"]} · ${fmt(s.price, lang)}</a>
+      <a class="btn buy" href="${CHECKOUT[s.id] ? CHECKOUT[s.id] + "?lang=" + lang : "#"}" data-buy="${s.id}">${T[lang]["svc.buy"]} · ${fmt(s.price, lang)}</a>
     </article>`;
   }).join("");
 }
