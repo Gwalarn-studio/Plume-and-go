@@ -138,7 +138,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:18px}
       <div class="sec-head">
         <span class="eyebrow" data-i18n="svc.eyebrow">Services · fixed prices</span>
         <h2 data-i18n="svc.title">Pick one, pay once, get it tomorrow.</h2>
-        <p data-i18n="svc.sub">Every order includes one free revision. Prices include VAT.</p>
+        <p data-i18n="svc.sub">Every order includes one free revision. Final prices, no hidden fees.</p>
       </div>
       <div class="grid" id="cards"></div>
     </div>
@@ -182,7 +182,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:18px}
       <div class="faq">
         <details><summary data-i18n="faq.1q">Which languages do you work in?</summary><p data-i18n="faq.1p">English and French, plus translation between the two.</p></details>
         <details><summary data-i18n="faq.2q">How do I send my documents?</summary><p data-i18n="faq.2p">Right after payment you get a short form where you upload a file or paste text. No account needed.</p></details>
-        <details><summary data-i18n="faq.3q">Can I get an invoice?</summary><p data-i18n="faq.3p">Yes. An invoice with VAT is emailed automatically after each payment.</p></details>
+        <details><summary data-i18n="faq.3q">Can I get an invoice?</summary><p data-i18n="faq.3p">Yes. A receipt is emailed after each payment, and we send an invoice on request.</p></details>
         <details><summary data-i18n="faq.4q">What if I need something bigger?</summary><p data-i18n="faq.4p">Order the service twice (for example two blocks of 500 words), or write to us for a quote.</p></details>
       </div>
     </div>
@@ -204,8 +204,8 @@ footer nav{display:flex;flex-wrap:wrap;gap:18px}
 <div class="toast" id="toast" role="status" hidden></div>
 
 <script>
-/* Lemon Squeezy checkout links go here once the store exists.
-   Format: https://YOURSTORE.lemonsqueezy.com/checkout/buy/VARIANT-ID  */
+/* Stripe Payment Links go here once the Stripe account exists.
+   Format: https://buy.stripe.com/XXXXXXXX  (empty = "coming soon" toast) */
 const CHECKOUT = { cv:"", linkedin:"", translate:"", product:"", captions:"", proof:"" };
 
 const SERVICES = [
@@ -230,7 +230,7 @@ const T = {
     "hero.lead":"CV, LinkedIn, traductions, fiches produits, légendes et relecture en français et en anglais. Prix fixes, pas d'allers-retours, livraison sous 24 heures.",
     "hero.cta":"Voir les services","hero.cta2":"Comment ça marche",
     "clock.order":"Commande passée","clock.brief":"Brief reçu","clock.done":"Livré dans votre boîte mail","clock.next":"< 24 h","clock.note":"La plupart des commandes arrivent le jour même.",
-    "svc.eyebrow":"Services · prix fixes","svc.title":"Choisissez, payez une fois, recevez demain.","svc.sub":"Chaque commande inclut une retouche gratuite. Prix TTC.",
+    "svc.eyebrow":"Services · prix fixes","svc.title":"Choisissez, payez une fois, recevez demain.","svc.sub":"Chaque commande inclut une retouche gratuite. Prix finaux, sans frais cachés.",
     "svc.buy":"Commander","svc.fast":"24 h",
     "how.eyebrow":"Comment ça marche","how.title":"Quatre étapes, aucune réunion.",
     "how.1t":"Choisissez un service","how.1p":"Chacun a un prix fixe et un périmètre clair.",
@@ -244,7 +244,7 @@ const T = {
     "faq.title":"Questions fréquentes",
     "faq.1q":"Dans quelles langues travaillez-vous ?","faq.1p":"Français et anglais, et traduction entre les deux.",
     "faq.2q":"Comment envoyer mes documents ?","faq.2p":"Juste après le paiement, un court formulaire vous permet d'envoyer un fichier ou de coller un texte. Aucun compte nécessaire.",
-    "faq.3q":"Puis-je avoir une facture ?","faq.3p":"Oui. Une facture avec TVA est envoyée automatiquement après chaque paiement.",
+    "faq.3q":"Puis-je avoir une facture ?","faq.3p":"Oui. Un reçu est envoyé par e-mail après chaque paiement, et une facture sur simple demande.",
     "faq.4q":"Et pour un travail plus long ?","faq.4p":"Commandez le service deux fois (par exemple deux blocs de 500 mots), ou écrivez-nous pour un devis.",
     "ft.legal":"Mentions légales","ft.terms":"CGV","ft.privacy":"Confidentialité","ft.contact":"Contact",
     "toast.soon":"Le paiement ouvre bientôt. Ceci est un aperçu de la boutique."
