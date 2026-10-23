@@ -191,11 +191,12 @@ footer nav{display:flex;flex-wrap:wrap;gap:18px}
 
 <footer>
   <div class="wrap row">
-    <span>© 2026 Plume &amp; Go</span>
+    <span>© 2026 Plume &amp; Go · [PRÉNOM NOM], EI</span>
     <nav aria-label="Legal">
-      <a href="legal-notice.html" data-i18n="ft.legal">Legal notice</a>
-      <a href="terms.html" data-i18n="ft.terms">Terms of sale</a>
-      <a href="privacy.html" data-i18n="ft.privacy">Privacy</a>
+      <a href="en/legal-notice.html" data-href-en="en/legal-notice.html" data-href-fr="fr/mentions-legales.html" data-i18n="ft.legal">Legal notice</a>
+      <a href="en/terms.html" data-href-en="en/terms.html" data-href-fr="fr/cgv.html" data-i18n="ft.terms">Terms of sale</a>
+      <a href="en/privacy.html" data-href-en="en/privacy.html" data-href-fr="fr/confidentialite.html" data-i18n="ft.privacy">Privacy</a>
+      <a href="en/terms.html#8-right-of-withdrawal-consumers" data-href-en="en/terms.html#8-right-of-withdrawal-consumers" data-href-fr="fr/cgv.html#8-droit-de-retractation-clients-consommateurs" data-i18n="ft.withdraw">Withdraw from contract here</a>
       <a href="#how" data-i18n="ft.contact">Contact</a>
     </nav>
   </div>
@@ -246,7 +247,7 @@ const T = {
     "faq.2q":"Comment envoyer mes documents ?","faq.2p":"Juste après le paiement, un court formulaire vous permet d'envoyer un fichier ou de coller un texte. Aucun compte nécessaire.",
     "faq.3q":"Puis-je avoir une facture ?","faq.3p":"Oui. Un reçu est envoyé par e-mail après chaque paiement, et une facture sur simple demande.",
     "faq.4q":"Et pour un travail plus long ?","faq.4p":"Commandez le service deux fois (par exemple deux blocs de 500 mots), ou écrivez-nous pour un devis.",
-    "ft.legal":"Mentions légales","ft.terms":"CGV","ft.privacy":"Confidentialité","ft.contact":"Contact",
+    "ft.legal":"Mentions légales","ft.terms":"CGV","ft.privacy":"Confidentialité","ft.contact":"Contact","ft.withdraw":"Se rétracter du contrat ici",
     "toast.soon":"Le paiement ouvre bientôt. Ceci est un aperçu de la boutique."
   }
 };
@@ -277,6 +278,7 @@ function setLang(l){
   document.querySelectorAll("[data-i18n]").forEach(el => { const v = T[l][el.dataset.i18n]; if (v) el.textContent = v; });
   document.querySelectorAll("[data-i18n-html]").forEach(el => { const v = T[l][el.dataset.i18nHtml]; if (v) el.innerHTML = v; });
   document.querySelectorAll("[data-set-lang]").forEach(b => b.setAttribute("aria-pressed", b.dataset.setLang === l));
+  document.querySelectorAll("[data-href-en]").forEach(a => a.href = a.dataset[l === "fr" ? "hrefFr" : "hrefEn"]);
   renderCards();
   try { localStorage.setItem("lang", l); } catch(e) {}
 }
