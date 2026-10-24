@@ -74,7 +74,8 @@ section{padding-block:64px}
 .chip{font:500 .76rem/1 var(--mono);letter-spacing:.04em;border:1px solid var(--line);border-radius:999px;padding:6px 10px;color:var(--muted)}
 .chip.fast{background:var(--mark);color:var(--mark-ink);border-color:transparent}
 .buy{width:100%;justify-content:center;background:var(--brand);color:var(--brand-ink)}
-.grid.one{grid-template-columns:minmax(0,1fr);max-width:640px}
+.grid.one{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:600px){.grid.one{grid-template-columns:1fr}}
 #cards{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media (max-width:600px){#cards{grid-template-columns:1fr}}
 :root:not([data-theme="light"]) .buy{border:1px solid var(--line)}
@@ -150,7 +151,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:18px}
   <section id="guides" class="promise">
     <div class="wrap">
       <div class="sec-head">
-        <span class="eyebrow" data-i18n="gd.eyebrow">Downloadable guide</span>
+        <span class="eyebrow" data-i18n="gd.eyebrow">Downloadable guides</span>
         <h2 data-i18n="gd.title">Do it yourself, at your own pace.</h2>
         <p data-i18n="gd.sub">A clear, practical PDF to download right after payment.</p>
       </div>
@@ -221,7 +222,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:18px}
 <script>
 /* Order links go to the payments worker (brief form, then Stripe).
    Format: https://<worker>/commander/<id>  (?lang= is added; empty = "coming soon" toast) */
-const CHECKOUT = { cv:"", proof:"", rewrite:"", translate:"", "guide-linkedin":"" };
+const CHECKOUT = { cv:"", proof:"", rewrite:"", translate:"", "guide-linkedin":"", "guide-interview":"" };
 
 const SERVICES = [
   { id:"cv", price:15, en:{t:"CV + cover letter", p:"Your CV rewritten for the job you want, with a matching cover letter.", f:["ATS-friendly wording","Tailored to one job offer","Sent by email, ready to paste"]},
@@ -236,7 +237,9 @@ const SERVICES = [
 
 const GUIDES = [
   { id:"guide-linkedin", price:5, guide:true, en:{t:"LinkedIn profile guide", p:"Rewrite your profile in one evening so recruiters find you and want to contact you.", f:["Headline and About section formulas","Before/after examples for your experience","Final checklist + 15-minute weekly routine"]},
-    fr:{t:"Guide profil LinkedIn", p:"Réécrivez votre profil en une soirée pour que les recruteurs vous trouvent et aient envie de vous contacter.", f:["Formules pour le titre et la section Infos","Exemples avant/après pour vos expériences","Checklist finale + routine de 15 minutes par semaine"]}, chip:"PDF · EN or FR", chipFr:"PDF · FR ou EN" }
+    fr:{t:"Guide profil LinkedIn", p:"Réécrivez votre profil en une soirée pour que les recruteurs vous trouvent et aient envie de vous contacter.", f:["Formules pour le titre et la section Infos","Exemples avant/après pour vos expériences","Checklist finale + routine de 15 minutes par semaine"]}, chip:"PDF · EN or FR", chipFr:"PDF · FR ou EN" },
+  { id:"guide-interview", price:5, guide:true, en:{t:"Job interview: the 20 trickiest questions", p:"Model answers to adapt in 5 minutes, so no question catches you off guard.", f:["What the recruiter really wants to know","Salary questions and how to negotiate","4 ready-to-send emails: thank-you, follow-up, negotiation, after a no"]},
+    fr:{t:"Entretien d'embauche : les 20 questions pièges", p:"Des réponses modèles à adapter en 5 minutes, pour qu'aucune question ne vous prenne de court.", f:["Ce que le recruteur veut vraiment savoir","Les questions sur le salaire et comment négocier","4 e-mails prêts à envoyer : remerciement, relance, négociation, après un refus"]}, chip:"PDF · EN or FR", chipFr:"PDF · FR ou EN" }
 ];
 
 const T = {
@@ -256,7 +259,7 @@ const T = {
     "pr.eyebrow":"Notre engagement","pr.title":"Rapide ne veut pas dire bâclé.",
     "pr.1t":"En retard ? Remboursé.","pr.1p":"Si votre commande n'est pas livrée sous 24 heures, vous êtes remboursé intégralement.",
     "pr.2t":"Pas conforme ? Remboursé.","pr.2p":"Si le travail ne correspond pas à votre brief, signalez-le sous 7 jours et vous êtes remboursé intégralement.",
-    "gd.eyebrow":"Guide à télécharger","gd.title":"Faites-le vous-même, à votre rythme.","gd.sub":"Un PDF clair et pratique, à télécharger juste après le paiement.","gd.fast":"Immédiat","gd.buy":"Acheter",
+    "gd.eyebrow":"Guides à télécharger","gd.title":"Faites-le vous-même, à votre rythme.","gd.sub":"Un PDF clair et pratique, à télécharger juste après le paiement.","gd.fast":"Immédiat","gd.buy":"Acheter",
     "pr.3t":"Vos données restent à vous","pr.3p":"Vos fichiers servent uniquement à votre commande et sont supprimés après 30 jours.",
     "faq.title":"Questions fréquentes",
     "faq.1q":"Dans quelles langues travaillez-vous ?","faq.1p":"Français et anglais, et traduction entre les deux.",
