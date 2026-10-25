@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="google-site-verification" content="xr04cnwUJ9O7dfNQE8VGNQkIYiNTeebG1ID9B4vZDqc"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Plume &amp; Go</title><link rel="icon" type="image/svg+xml" href="assets/gwalarn-icone.svg"><link rel="icon" type="image/png" href="assets/gwalarn-icone.png"><link rel="apple-touch-icon" href="assets/gwalarn-icone.png">
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="CV and cover letter, proofreading, rewriting and EN/FR translation, delivered within 24 hours. Delivered within 24 hours.">
+<meta name="description" content="AI-tailored CV and cover letter in one minute, plus proofreading, rewriting and EN/FR translation delivered within 24 hours.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -121,7 +121,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:18px}
     <div class="hero" id="top">
       <div>
         <h1 data-i18n-html="hero.title">Small writing jobs, <em>done by tomorrow.</em></h1>
-        <p class="lead" data-i18n="hero.lead">CV and cover letter, proofreading, rewriting and translation in English and French. Fixed prices, no back-and-forth, delivered within 24 hours.</p>
+        <p class="lead" data-i18n="hero.lead">CV and cover letter, proofreading, rewriting and translation in English and French. Fixed prices, no back-and-forth: your CV and cover letter in one minute, everything else within 24 hours.</p>
         <div class="ctas">
           <a class="btn btn-mark" href="#services" data-i18n="hero.cta">See the services</a>
           <a class="btn btn-ghost" href="#how" data-i18n="hero.cta2">How it works</a>
@@ -226,8 +226,8 @@ footer nav{display:flex;flex-wrap:wrap;gap:18px}
 const CHECKOUT = { cv:"", proof:"", rewrite:"", translate:"", "guide-linkedin":"", "guide-interview":"" };
 
 const SERVICES = [
-  { id:"cv", price:15, en:{t:"CV + cover letter", p:"Your CV rewritten for the job you want, with a matching cover letter.", f:["ATS-friendly wording","Tailored to one job offer","Sent by email, ready to paste"]},
-    fr:{t:"CV + lettre de motivation", p:"Votre CV réécrit pour le poste visé, avec une lettre de motivation assortie.", f:["Rédaction lisible par les logiciels de tri","Adapté à une offre d'emploi","Envoyé par e-mail, prêt à coller"]}, chip:"CV + letter", chipFr:"CV + lettre" },
+  { id:"cv", price:15, fast:{en:"1 min", fr:"1 min"}, en:{t:"CV + cover letter", p:"Paste your CV and the job ad: our AI rewrites your CV for that job and writes the matching cover letter, in under a minute.", f:["Tailored to the job ad, ATS-friendly","Match score with the job ad's keywords","3 templates, editable, PDF or Word"]},
+    fr:{t:"CV + lettre de motivation", p:"Collez votre CV et l'offre : notre IA réécrit votre CV pour ce poste et rédige la lettre assortie, en moins d'une minute.", f:["Adapté à l'offre, lisible par les logiciels de tri","Score de correspondance avec les mots-clés de l'offre","3 modèles, modifiable, en PDF ou Word"]}, chip:"CV + letter", chipFr:"CV + lettre" },
   { id:"proof", price:7, en:{t:"Proofreading", p:"Spelling, grammar and clarity fixes, with every change listed.", f:["Up to 1,500 words","Corrected text + list of changes","Short note on recurring errors"]},
     fr:{t:"Relecture", p:"Orthographe, grammaire et clarté, avec la liste de chaque correction.", f:["Jusqu'à 1 500 mots","Texte corrigé + liste des modifications","Note sur les erreurs récurrentes"]}, chip:"≤ 1,500 words", chipFr:"≤ 1 500 mots" },
   { id:"rewrite", price:9, en:{t:"Rewriting", p:"Your text made clearer, shorter and more professional, in your voice.", f:["Up to 800 words","Email, bio, web page or post","Tone of your choice"]},
@@ -247,7 +247,7 @@ const T = {
   en:{"svc.buy":"Order now","svc.fast":"24 h","gd.fast":"Instant","gd.buy":"Buy","toast.soon":"Checkout opens soon. This is a preview of the shop."},
   fr:{
     "hero.title":"Petits travaux d'écriture, <em>livrés demain.</em>",
-    "hero.lead":"CV et lettre de motivation, relecture, réécriture et traduction en français et en anglais. Prix fixes, pas d'allers-retours, livraison sous 24 heures.",
+    "hero.lead":"CV et lettre de motivation, relecture, réécriture et traduction en français et en anglais. Prix fixes, pas d'allers-retours : votre CV et votre lettre en une minute, le reste sous 24 heures.",
     "hero.cta":"Voir les services","hero.cta2":"Comment ça marche",
     "clock.order":"Commande passée","clock.brief":"Brief reçu","clock.done":"Livré dans votre boîte mail","clock.next":"< 24 h","clock.note":"La plupart des commandes arrivent le jour même.",
     "svc.eyebrow":"Services · prix fixes","svc.title":"Choisissez, payez une fois, recevez demain.","svc.sub":"Prix finaux, sans frais cachés. Remboursé en cas de retard.",
@@ -286,7 +286,7 @@ function renderCards(){
       <div class="top"><h3>${c.t}</h3><span class="price">${fmt(s.price, lang)}</span></div>
       <p>${c.p}</p>
       <ul>${c.f.map(x => `<li>${x}</li>`).join("")}</ul>
-      <div class="meta"><span class="chip fast">${T[lang][s.guide ? "gd.fast" : "svc.fast"]}</span><span class="chip">${lang === "fr" && s.chipFr ? s.chipFr : s.chip}</span></div>
+      <div class="meta"><span class="chip fast">${s.fast ? s.fast[lang] : T[lang][s.guide ? "gd.fast" : "svc.fast"]}</span><span class="chip">${lang === "fr" && s.chipFr ? s.chipFr : s.chip}</span></div>
       <a class="btn buy" href="${CHECKOUT[s.id] ? CHECKOUT[s.id] + "?lang=" + lang : "#"}" data-buy="${s.id}">${T[lang][s.guide ? "gd.buy" : "svc.buy"]} · ${fmt(s.price, lang)}</a>
     </article>`;
   };
