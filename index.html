@@ -224,9 +224,11 @@ footer nav{display:flex;flex-wrap:wrap;gap:18px}
 <div class="toast" id="toast" role="status" hidden></div>
 
 <script>
-/* Order links go to the payments worker (brief form, then Stripe).
-   Format: https://<worker>/commander/<id>  (?lang= is added; empty = "coming soon" toast) */
-const CHECKOUT = { cv:"", proof:"", rewrite:"", translate:"", "guide-linkedin":"", "guide-interview":"" };
+/* Order links go to the payments worker (brief form, then Stripe): WORKER/commander/<id>?lang=xx.
+   Paste the worker address below once it is online (empty = "coming soon" toast on every button). */
+const WORKER = "";
+const CHECKOUT = Object.fromEntries(["cv", "proof", "rewrite", "translate", "guide-linkedin", "guide-interview"]
+  .map(id => [id, WORKER ? WORKER.replace(/\/+$/, "") + "/commander/" + id : ""]));
 
 const SERVICES = [
   { id:"cv", price:15, fast:{en:"1 min", fr:"1 min"}, en:{t:"CV + cover letter", p:"Paste your CV, or just answer a few simple questions if you don't have one: our AI writes your CV and matching cover letter in under a minute.", f:["No CV? A simple questionnaire is enough","Tailored to the job ad, ATS-friendly","Changes on request, then PDF or Word"]},
