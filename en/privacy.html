@@ -26,6 +26,7 @@ blockquote{margin:16px 0;padding:12px 16px;background:var(--surface);border:1px 
 footer{border-top:1px solid var(--line);padding-block:24px;color:var(--muted);font-size:.9rem}
 footer nav{display:flex;flex-wrap:wrap;gap:18px} footer a{color:inherit}
 .logo{display:inline-flex;align-items:center} .gw-mark{display:block;border-radius:7px;flex:none;margin-right:8px}
+@media (max-width:600px){.t thead{display:none}.t table,.t tbody,.t tr,.t td{display:block;width:100%}.t tr{border:1px solid var(--line);border-radius:12px;margin-bottom:12px;padding:4px 0;background:var(--surface)}.t td{border:0;padding:6px 12px}.t td::before{content:attr(data-label);display:block;font-weight:600;font-size:.85rem;color:var(--muted)}}
 </style>
 </head>
 <body>
@@ -49,40 +50,40 @@ footer nav{display:flex;flex-wrap:wrap;gap:18px} footer a{color:inherit}
 </thead>
 <tbody>
 <tr>
-<td>Processing and delivering your order</td>
-<td>Name, email, brief and files you send, message history</td>
-<td>Performance of the contract</td>
-<td>Files and brief: 30 days after delivery, then deleted. Order data: 5 years (civil limitation period)</td>
+<td data-label="Purpose">Processing and delivering your order</td>
+<td data-label="Data">Name, email, brief and files you send, message history</td>
+<td data-label="Legal basis">Performance of the contract</td>
+<td data-label="Retention">Files and brief: 30 days after delivery, then deleted. Order data: 5 years (civil limitation period)</td>
 </tr>
 <tr>
-<td>Invoicing and accounting obligations</td>
-<td>Name, email, amount, date, order number, country</td>
-<td>Legal obligation</td>
-<td>10 years (Article L.123-22 of the French Commercial Code)</td>
+<td data-label="Purpose">Invoicing and accounting obligations</td>
+<td data-label="Data">Name, email, amount, date, order number, country</td>
+<td data-label="Legal basis">Legal obligation</td>
+<td data-label="Retention">10 years (Article L.123-22 of the French Commercial Code)</td>
 </tr>
 <tr>
-<td>Answering your questions</td>
-<td>Name, email, message</td>
-<td>Legitimate interest</td>
-<td>3 years after last contact</td>
+<td data-label="Purpose">Answering your questions</td>
+<td data-label="Data">Name, email, message</td>
+<td data-label="Legal basis">Legitimate interest</td>
+<td data-label="Retention">3 years after last contact</td>
 </tr>
 <tr>
-<td>Preventing fraud and securing the site</td>
-<td>IP address, technical connection data</td>
-<td>Legitimate interest</td>
-<td>[12 months] maximum</td>
+<td data-label="Purpose">Preventing fraud and securing the site</td>
+<td data-label="Data">IP address, technical connection data</td>
+<td data-label="Legal basis">Legitimate interest</td>
+<td data-label="Retention">[12 months] maximum</td>
 </tr>
 <tr>
-<td>Newsletter / offers <em>(if enabled)</em></td>
-<td>Email</td>
-<td>Consent</td>
-<td>Until you unsubscribe, or 3 years without interaction</td>
+<td data-label="Purpose">Newsletter / offers <em>(if enabled)</em></td>
+<td data-label="Data">Email</td>
+<td data-label="Legal basis">Consent</td>
+<td data-label="Retention">Until you unsubscribe, or 3 years without interaction</td>
 </tr>
 <tr>
-<td>Audience measurement <em>(if enabled)</em></td>
-<td>Anonymised or pseudonymised browsing data</td>
-<td>[Consent / CNIL exemption for anonymised tools]</td>
-<td>13 months maximum (cookies), 25 months (data)</td>
+<td data-label="Purpose">Audience measurement <em>(if enabled)</em></td>
+<td data-label="Data">Anonymised or pseudonymised browsing data</td>
+<td data-label="Legal basis">[Consent / CNIL exemption for anonymised tools]</td>
+<td data-label="Retention">13 months maximum (cookies), 25 months (data)</td>
 </tr>
 </tbody>
 </table></div>
