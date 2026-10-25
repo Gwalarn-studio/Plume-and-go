@@ -24,7 +24,7 @@
   --brand:#0b2f2c; --brand-ink:#e8efec; --mark:#f2d64a; --mark-ink:#14201f; --ok:#5cc792; color-scheme:dark}
 
 *{box-sizing:border-box}
-body{background:var(--paper);color:var(--ink);font:400 1rem/1.6 var(--body)}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1rem/1.6 var(--body)}
 .wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 a{color:inherit}
 :focus-visible{outline:3px solid var(--mark);outline-offset:2px;border-radius:6px}
@@ -38,7 +38,7 @@ mark{background:linear-gradient(transparent 55%,var(--mark) 55%);color:inherit;p
 .logo{font:800 1.35rem/1 var(--display);letter-spacing:-.01em;text-decoration:none}
 .logo span{color:var(--mark)}
 .lang{display:flex;border:1px solid color-mix(in srgb,var(--brand-ink) 35%,transparent);border-radius:999px;padding:3px}
-.lang button{font:500 .8rem/1 var(--mono);letter-spacing:.06em;background:none;color:var(--brand-ink);border:0;border-radius:999px;padding:7px 12px;cursor:pointer}
+.lang button{font:500 .875rem/1 var(--mono);letter-spacing:.06em;background:none;color:var(--brand-ink);border:0;border-radius:999px;padding:7px 12px;cursor:pointer}
 .lang button[aria-pressed="true"]{background:var(--mark);color:var(--mark-ink)}
 .hero{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:end;padding-block:40px 56px}
 .hero h1{font-size:clamp(2.2rem,5.4vw,4rem);font-weight:800;letter-spacing:-.025em}
@@ -52,11 +52,11 @@ mark{background:linear-gradient(transparent 55%,var(--mark) 55%);color:inherit;p
 .clock{border:1px dashed color-mix(in srgb,var(--brand-ink) 40%,transparent);border-radius:var(--r);padding:20px;font-family:var(--mono);font-size:.9rem;display:grid;gap:10px}
 .clock div{display:flex;justify-content:space-between;gap:12px}
 .clock b{font-weight:500;color:var(--mark)}
-.clock small{opacity:.75;font-size:.78rem}
+.clock small{opacity:.85;font-size:.85rem}
 
 /* sections */
 section{padding-block:64px}
-.eyebrow{font:500 .78rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.eyebrow{font:500 .85rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .sec-head{display:grid;gap:10px;margin-bottom:32px;max-width:40em}
 .sec-head h2{font-size:clamp(1.7rem,3.4vw,2.4rem);font-weight:700;letter-spacing:-.02em}
 .sec-head p{color:var(--muted)}
@@ -71,7 +71,7 @@ section{padding-block:64px}
 .card li{display:flex;gap:8px}
 .card li::before{content:"✓";color:var(--ok);font-weight:600}
 .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:6px}
-.chip{font:500 .76rem/1 var(--mono);letter-spacing:.04em;border:1px solid var(--line);border-radius:999px;padding:6px 10px;color:var(--muted)}
+.chip{font:500 .85rem/1 var(--mono);letter-spacing:.04em;border:1px solid var(--line);border-radius:999px;padding:6px 10px;color:var(--muted)}
 .chip.fast{background:var(--mark);color:var(--mark-ink);border-color:transparent}
 .buy{width:100%;justify-content:center;background:var(--brand);color:var(--brand-ink)}
 .grid.one{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -79,6 +79,9 @@ section{padding-block:64px}
 #cards{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media (max-width:600px){#cards{grid-template-columns:1fr}}
 :root:not([data-theme="light"]) .buy{border:1px solid var(--line)}
+/* dark mode: make the order buttons stand out from the card */
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .buy{background:#1f6b62}}
+:root[data-theme="dark"] .buy{background:#1f6b62}
 
 .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;counter-reset:s;list-style:none;padding:0;margin:0}
 .steps li{counter-increment:s;border-top:2px solid var(--ink);padding-top:14px;display:grid;gap:6px;min-width:0}
@@ -213,7 +216,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:18px}
       <a href="en/terms.html" data-href-en="en/terms.html" data-href-fr="fr/cgv.html" data-i18n="ft.terms">Terms of sale</a>
       <a href="en/privacy.html" data-href-en="en/privacy.html" data-href-fr="fr/confidentialite.html" data-i18n="ft.privacy">Privacy</a>
       <a href="en/terms.html#8-right-of-withdrawal-consumers" data-href-en="en/terms.html#8-right-of-withdrawal-consumers" data-href-fr="fr/cgv.html#8-droit-de-retractation-clients-consommateurs" data-i18n="ft.withdraw">Withdraw from contract here</a>
-      <a href="#how" data-i18n="ft.contact">Contact</a>
+      <a href="en/legal-notice.html#contact" data-href-en="en/legal-notice.html#contact" data-href-fr="fr/mentions-legales.html#contact" data-i18n="ft.contact">Contact</a>
     </nav>
   </div>
 </footer>
@@ -244,7 +247,7 @@ const GUIDES = [
 ];
 
 const T = {
-  en:{"svc.buy":"Order now","svc.fast":"24 h","gd.fast":"Instant","gd.buy":"Buy","toast.soon":"Checkout opens soon. This is a preview of the shop."},
+  en:{"svc.buy":"Order now","svc.fast":"24 h","gd.fast":"Instant","gd.buy":"Buy","toast.soon":"Checkout will be available soon. This is a preview of the shop."},
   fr:{
     "hero.title":"Petits travaux d'écriture, <em>livrés demain.</em>",
     "hero.lead":"CV et lettre de motivation, relecture, réécriture et traduction en français et en anglais. Prix fixes, pas d'allers-retours : votre CV et votre lettre en une minute, le reste sous 24 heures.",
@@ -268,7 +271,7 @@ const T = {
     "faq.3q":"Puis-je avoir une facture ?","faq.3p":"Oui. Un reçu est envoyé par e-mail après chaque paiement, et une facture sur simple demande.",
     "faq.4q":"Et pour un travail plus long ?","faq.4p":"Commandez le service deux fois (par exemple deux blocs de 500 mots), ou écrivez-nous pour un devis.",
     "ft.legal":"Mentions légales","ft.terms":"CGV","ft.privacy":"Confidentialité","ft.contact":"Contact","ft.withdraw":"Se rétracter du contrat ici",
-    "toast.soon":"Le paiement ouvre bientôt. Ceci est un aperçu de la boutique."
+    "toast.soon":"Le paiement sera bientôt disponible. Ceci est un aperçu de la boutique."
   }
 };
 

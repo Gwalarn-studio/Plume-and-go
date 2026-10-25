@@ -26,6 +26,7 @@ blockquote{margin:16px 0;padding:12px 16px;background:var(--surface);border:1px 
 footer{border-top:1px solid var(--line);padding-block:24px;color:var(--muted);font-size:.9rem}
 footer nav{display:flex;flex-wrap:wrap;gap:18px} footer a{color:inherit}
 .logo{display:inline-flex;align-items:center} .gw-mark{display:block;border-radius:7px;flex:none;margin-right:8px}
+@media (max-width:600px){.t thead{display:none}.t table,.t tbody,.t tr,.t td{display:block;width:100%}.t tr{border:1px solid var(--line);border-radius:12px;margin-bottom:12px;padding:4px 0;background:var(--surface)}.t td{border:0;padding:6px 12px}.t td::before{content:attr(data-label);display:block;font-weight:600;font-size:.85rem;color:var(--muted)}}
 </style>
 </head>
 <body>
@@ -49,40 +50,40 @@ footer nav{display:flex;flex-wrap:wrap;gap:18px} footer a{color:inherit}
 </thead>
 <tbody>
 <tr>
-<td>Traiter et livrer votre commande</td>
-<td>Nom, e-mail, contenu du brief et fichiers transmis, historique d'échanges</td>
-<td>Exécution du contrat</td>
-<td>Fichiers et brief : 30 jours après livraison, puis suppression. Données de commande : 5 ans (prescription civile)</td>
+<td data-label="Finalité">Traiter et livrer votre commande</td>
+<td data-label="Données">Nom, e-mail, contenu du brief et fichiers transmis, historique d'échanges</td>
+<td data-label="Base légale">Exécution du contrat</td>
+<td data-label="Durée de conservation">Fichiers et brief : 30 jours après livraison, puis suppression. Données de commande : 5 ans (prescription civile)</td>
 </tr>
 <tr>
-<td>Facturation et obligations comptables</td>
-<td>Nom, e-mail, montant, date, n° de commande, pays</td>
-<td>Obligation légale</td>
-<td>10 ans (art. L.123-22 du Code de commerce)</td>
+<td data-label="Finalité">Facturation et obligations comptables</td>
+<td data-label="Données">Nom, e-mail, montant, date, n° de commande, pays</td>
+<td data-label="Base légale">Obligation légale</td>
+<td data-label="Durée de conservation">10 ans (art. L.123-22 du Code de commerce)</td>
 </tr>
 <tr>
-<td>Répondre à vos questions</td>
-<td>Nom, e-mail, message</td>
-<td>Intérêt légitime</td>
-<td>3 ans après le dernier contact</td>
+<td data-label="Finalité">Répondre à vos questions</td>
+<td data-label="Données">Nom, e-mail, message</td>
+<td data-label="Base légale">Intérêt légitime</td>
+<td data-label="Durée de conservation">3 ans après le dernier contact</td>
 </tr>
 <tr>
-<td>Prévenir la fraude et sécuriser le site</td>
-<td>Adresse IP, données techniques de connexion</td>
-<td>Intérêt légitime</td>
-<td>[12 mois] maximum</td>
+<td data-label="Finalité">Prévenir la fraude et sécuriser le site</td>
+<td data-label="Données">Adresse IP, données techniques de connexion</td>
+<td data-label="Base légale">Intérêt légitime</td>
+<td data-label="Durée de conservation">[12 mois] maximum</td>
 </tr>
 <tr>
-<td>Newsletter / offres <em>(si activé)</em></td>
-<td>E-mail</td>
-<td>Consentement</td>
-<td>Jusqu'au désabonnement, ou 3 ans sans interaction</td>
+<td data-label="Finalité">Newsletter / offres <em>(si activé)</em></td>
+<td data-label="Données">E-mail</td>
+<td data-label="Base légale">Consentement</td>
+<td data-label="Durée de conservation">Jusqu'au désabonnement, ou 3 ans sans interaction</td>
 </tr>
 <tr>
-<td>Mesure d'audience <em>(si activée)</em></td>
-<td>Données de navigation anonymisées ou pseudonymisées</td>
-<td>[Consentement / exemption CNIL si outil anonymisé]</td>
-<td>13 mois maximum (cookies), 25 mois (données)</td>
+<td data-label="Finalité">Mesure d'audience <em>(si activée)</em></td>
+<td data-label="Données">Données de navigation anonymisées ou pseudonymisées</td>
+<td data-label="Base légale">[Consentement / exemption CNIL si outil anonymisé]</td>
+<td data-label="Durée de conservation">13 mois maximum (cookies), 25 mois (données)</td>
 </tr>
 </tbody>
 </table></div>
