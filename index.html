@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="google-site-verification" content="xr04cnwUJ9O7dfNQE8VGNQkIYiNTeebG1ID9B4vZDqc"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Plume &amp; Go</title><link rel="icon" type="image/svg+xml" href="assets/gwalarn-icone.svg"><link rel="icon" type="image/png" href="assets/gwalarn-icone.png"><link rel="apple-touch-icon" href="assets/gwalarn-icone.png">
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="AI-tailored CV and cover letter in one minute, plus proofreading, rewriting and EN/FR translation delivered within 24 hours.">
+<meta name="description" content="AI-tailored CV and cover letter in one minute, plus proofreading, rewriting and EN/FR translation: all written by AI and ready in about a minute.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -124,17 +124,17 @@ footer nav{display:flex;flex-wrap:wrap;gap:18px}
     <div class="hero" id="top">
       <div>
         <h1 data-i18n-html="hero.title">Small writing jobs, <em>done by tomorrow.</em></h1>
-        <p class="lead" data-i18n="hero.lead">CV and cover letter, proofreading, rewriting and translation in English and French. Fixed prices, no back-and-forth: your CV and cover letter in one minute, everything else within 24 hours.</p>
+        <p class="lead" data-i18n="hero.lead">CV and cover letter, proofreading, rewriting and translation in English and French. Fixed prices, no back-and-forth: our AI does the work and your result is on screen in about a minute.</p>
         <div class="ctas">
           <a class="btn btn-mark" href="#services" data-i18n="hero.cta">See the services</a>
           <a class="btn btn-ghost" href="#how" data-i18n="hero.cta2">How it works</a>
         </div>
       </div>
       <div class="clock" aria-label="Delivery promise">
-        <div><span data-i18n="clock.order">Order placed</span><b>09:40</b></div>
-        <div><span data-i18n="clock.brief">Brief received</span><b>09:45</b></div>
-        <div><span data-i18n="clock.done">Delivered to your inbox</span><b data-i18n="clock.next">&lt; 24 h</b></div>
-        <small data-i18n="clock.note">Most orders arrive the same day.</small>
+        <div><span data-i18n="clock.order">Text sent</span><b>09:40</b></div>
+        <div><span data-i18n="clock.brief">Payment confirmed</span><b>09:41</b></div>
+        <div><span data-i18n="clock.done">Result on screen</span><b>09:42</b></div>
+        <small data-i18n="clock.note">The link is also emailed to you.</small>
       </div>
     </div>
   </div>
@@ -145,8 +145,8 @@ footer nav{display:flex;flex-wrap:wrap;gap:18px}
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow" data-i18n="svc.eyebrow">Services · fixed prices</span>
-        <h2 data-i18n="svc.title">Pick one, pay once, get it tomorrow.</h2>
-        <p data-i18n="svc.sub">Final prices, no hidden fees. Refunded if late.</p>
+        <h2 data-i18n="svc.title">Pick one, pay once, ready in a minute.</h2>
+        <p data-i18n="svc.sub">Final prices, no hidden fees. Refunded if it misses the mark.</p>
       </div>
       <div class="grid" id="cards"></div>
     </div>
@@ -173,7 +173,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:18px}
         <li><h3 data-i18n="how.1t">Choose a service</h3><p data-i18n="how.1p">Each one has a fixed price and a clear scope.</p></li>
         <li><h3 data-i18n="how.2t">Send your brief</h3><p data-i18n="how.2p">A short form opens. Paste your text and say what you need.</p></li>
         <li><h3 data-i18n="how.3t">Pay securely</h3><p data-i18n="how.3p">By card or Apple Pay through Stripe, our payment partner.</p></li>
-        <li><h3 data-i18n="how.4t">Receive it by email</h3><p data-i18n="how.4p">Within 24 hours. If it is late or not what you asked for, you get a refund.</p></li>
+        <li><h3 data-i18n="how.4t">Get it in a minute</h3><p data-i18n="how.4p">Your result appears on screen and the link is emailed to you. Changes are included, and if it is not what you asked for, you get a refund.</p></li>
       </ol>
     </div>
   </section>
@@ -185,7 +185,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:18px}
         <h2 data-i18n="pr.title">Quick does not mean careless.</h2>
       </div>
       <div class="grid">
-        <div class="card"><h3 data-i18n="pr.1t">Late? Refunded.</h3><p data-i18n="pr.1p">If your order is not delivered within 24 hours, you get a full refund.</p></div>
+        <div class="card"><h3 data-i18n="pr.1t">Not ready? Refunded.</h3><p data-i18n="pr.1p">If a technical problem stops your result from appearing, we finish it within 24 hours or refund you in full.</p></div>
         <div class="card"><h3 data-i18n="pr.2t">Not what you asked? Refunded.</h3><p data-i18n="pr.2p">If the work does not match your brief, tell us within 7 days and you get a full refund.</p></div>
         <div class="card"><h3 data-i18n="pr.3t">Your data stays yours</h3><p data-i18n="pr.3p">Files are used only for your order and deleted after 30 days.</p></div>
       </div>
@@ -233,12 +233,12 @@ const CHECKOUT = Object.fromEntries(["cv", "proof", "rewrite", "translate", "gui
 const SERVICES = [
   { id:"cv", price:15, fast:{en:"1 min", fr:"1 min"}, en:{t:"CV + cover letter", p:"Paste your CV, or just answer a few simple questions if you don't have one: our AI writes your CV and matching cover letter in under a minute.", f:["No CV? A simple questionnaire is enough","Tailored to the job ad, ATS-friendly","Changes on request, then PDF or Word"]},
     fr:{t:"CV + lettre de motivation", p:"Collez votre CV, ou répondez simplement à quelques questions si vous n'en avez pas : notre IA rédige votre CV et la lettre assortie en moins d'une minute.", f:["Pas de CV ? Un questionnaire simple suffit","Adapté à l'offre, lisible par les logiciels de tri","Retouches à la demande, puis PDF ou Word"]}, chip:"CV + letter", chipFr:"CV + lettre" },
-  { id:"proof", price:7, en:{t:"Proofreading", p:"Spelling, grammar and clarity fixes, with every change listed.", f:["Up to 1,500 words","Corrected text + list of changes","Short note on recurring errors"]},
-    fr:{t:"Relecture", p:"Orthographe, grammaire et clarté, avec la liste de chaque correction.", f:["Jusqu'à 1 500 mots","Texte corrigé + liste des modifications","Note sur les erreurs récurrentes"]}, chip:"≤ 1,500 words", chipFr:"≤ 1 500 mots" },
-  { id:"rewrite", price:9, en:{t:"Rewriting", p:"Your text made clearer, shorter and more professional, in your voice.", f:["Up to 800 words","Email, bio, web page or post","Tone of your choice"]},
-    fr:{t:"Réécriture", p:"Votre texte rendu plus clair, plus court et plus professionnel, avec votre ton.", f:["Jusqu'à 800 mots","E-mail, bio, page web ou publication","Ton au choix"]}, chip:"≤ 800 words", chipFr:"≤ 800 mots" },
-  { id:"translate", price:9, en:{t:"Translation EN ↔ FR", p:"Natural translation of short texts, checked by a human.", f:["Up to 500 words","Tone kept (formal or casual)","Delivered as text by email"]},
-    fr:{t:"Traduction EN ↔ FR", p:"Traduction naturelle de textes courts, relue par un humain.", f:["Jusqu'à 500 mots","Ton respecté (formel ou familier)","Livré en texte par e-mail"]}, chip:"≤ 500 words", chipFr:"≤ 500 mots" }
+  { id:"proof", price:7, en:{t:"Proofreading", p:"Our AI fixes every mistake without touching your style, and explains each fix.", f:["Up to 1,500 words","Your style kept, every fix explained","Ready in 1 minute, 2 changes included"]},
+    fr:{t:"Relecture", p:"Notre IA corrige chaque faute sans toucher à votre style, et vous explique chaque correction.", f:["Jusqu'à 1 500 mots","Votre style gardé, chaque correction expliquée","Prêt en 1 minute, 2 ajustements inclus"]}, chip:"≤ 1,500 words", chipFr:"≤ 1 500 mots" },
+  { id:"rewrite", price:9, en:{t:"Rewriting", p:"Our AI makes your text clearer and more convincing, in the tone you choose.", f:["Up to 800 words","Email, bio, web page or post","From casual to very formal"]},
+    fr:{t:"Réécriture", p:"Notre IA rend votre texte plus clair et plus convaincant, dans le ton que vous choisissez.", f:["Jusqu'à 800 mots","E-mail, bio, page web ou publication","Du familier au très formel"]}, chip:"≤ 800 words", chipFr:"≤ 800 mots" },
+  { id:"translate", price:9, en:{t:"Translation EN ↔ FR", p:"Translated by our AI the way a native speaker would write it: everyday English, not textbook English.", f:["Up to 500 words","Your tone, from casual to very formal","British or American English"]},
+    fr:{t:"Traduction EN ↔ FR", p:"Traduit par notre IA comme l'écrirait un natif : l'anglais de tous les jours, pas l'anglais scolaire.", f:["Jusqu'à 500 mots","Le ton de votre choix, du familier au très formel","Anglais britannique ou américain"]}, chip:"≤ 500 words", chipFr:"≤ 500 mots" }
 ];
 
 const GUIDES = [
@@ -249,21 +249,21 @@ const GUIDES = [
 ];
 
 const T = {
-  en:{"svc.buy":"Order now","svc.fast":"24 h","gd.fast":"Instant","gd.buy":"Buy","toast.soon":"Checkout will be available soon. This is a preview of the shop."},
+  en:{"svc.buy":"Order now","svc.fast":"1 min","gd.fast":"Instant","gd.buy":"Buy","toast.soon":"Checkout will be available soon. This is a preview of the shop."},
   fr:{
     "hero.title":"Petits travaux d'écriture, <em>livrés demain.</em>",
-    "hero.lead":"CV et lettre de motivation, relecture, réécriture et traduction en français et en anglais. Prix fixes, pas d'allers-retours : votre CV et votre lettre en une minute, le reste sous 24 heures.",
+    "hero.lead":"CV et lettre de motivation, relecture, réécriture et traduction en français et en anglais. Prix fixes, pas d'allers-retours : notre IA s'occupe de tout et votre résultat s'affiche en une minute environ.",
     "hero.cta":"Voir les services","hero.cta2":"Comment ça marche",
-    "clock.order":"Commande passée","clock.brief":"Brief reçu","clock.done":"Livré dans votre boîte mail","clock.next":"< 24 h","clock.note":"La plupart des commandes arrivent le jour même.",
-    "svc.eyebrow":"Services · prix fixes","svc.title":"Choisissez, payez une fois, recevez demain.","svc.sub":"Prix finaux, sans frais cachés. Remboursé en cas de retard.",
-    "svc.buy":"Commander","svc.fast":"24 h",
+    "clock.order":"Texte envoyé","clock.brief":"Paiement validé","clock.done":"Résultat à l'écran","clock.note":"Le lien vous est aussi envoyé par e-mail.",
+    "svc.eyebrow":"Services · prix fixes","svc.title":"Choisissez, payez une fois, c'est prêt en une minute.","svc.sub":"Prix finaux, sans frais cachés. Remboursé si ça ne colle pas.",
+    "svc.buy":"Commander","svc.fast":"1 min",
     "how.eyebrow":"Comment ça marche","how.title":"Quatre étapes, aucune réunion.",
     "how.1t":"Choisissez un service","how.1p":"Chacun a un prix fixe et un périmètre clair.",
     "how.2t":"Envoyez votre brief","how.2p":"Un court formulaire s'ouvre. Collez votre texte et dites-nous ce qu'il vous faut.",
     "how.3t":"Payez en sécurité","how.3p":"Par carte ou Apple Pay via Stripe, notre partenaire de paiement.",
-    "how.4t":"Recevez-le par e-mail","how.4p":"Sous 24 heures. En cas de retard ou si le travail ne correspond pas à votre demande, vous êtes remboursé.",
+    "how.4t":"C'est prêt en une minute","how.4p":"Le résultat s'affiche à l'écran et le lien arrive aussi par e-mail. Les ajustements sont inclus, et si le travail ne correspond pas à votre demande, vous êtes remboursé.",
     "pr.eyebrow":"Notre engagement","pr.title":"Rapide ne veut pas dire bâclé.",
-    "pr.1t":"En retard ? Remboursé.","pr.1p":"Si votre commande n'est pas livrée sous 24 heures, vous êtes remboursé intégralement.",
+    "pr.1t":"Pas prêt ? Remboursé.","pr.1p":"Si un souci technique empêche l'affichage de votre résultat, nous le terminons sous 24 heures ou vous êtes remboursé intégralement.",
     "pr.2t":"Pas conforme ? Remboursé.","pr.2p":"Si le travail ne correspond pas à votre brief, signalez-le sous 7 jours et vous êtes remboursé intégralement.",
     "gd.eyebrow":"Guides à télécharger","gd.title":"Faites-le vous-même, à votre rythme.","gd.sub":"Un PDF clair et pratique, à télécharger juste après le paiement.","gd.fast":"Immédiat","gd.buy":"Acheter",
     "pr.3t":"Vos données restent à vous","pr.3p":"Vos fichiers servent uniquement à votre commande et sont supprimés après 30 jours.",
