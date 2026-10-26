@@ -102,6 +102,7 @@ details p{margin-top:10px;color:var(--muted)}
 footer{border-top:1px solid var(--line);padding-block:32px;color:var(--muted);font-size:.9rem}
 footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 footer nav{display:flex;flex-wrap:wrap;gap:18px}
+footer .sister{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:14px;font-size:.85rem}
 
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:12px 18px;border-radius:12px;font-size:.95rem;max-width:calc(100% - 32px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
 
@@ -187,7 +188,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:18px}
       <div class="grid">
         <div class="card"><h3 data-i18n="pr.1t">Not ready? Refunded.</h3><p data-i18n="pr.1p">If a technical problem stops your result from appearing, we finish it within 24 hours or refund you in full.</p></div>
         <div class="card"><h3 data-i18n="pr.2t">Not what you asked? Refunded.</h3><p data-i18n="pr.2p">If the work does not match your brief, tell us within 7 days and you get a full refund.</p></div>
-        <div class="card"><h3 data-i18n="pr.3t">Your data stays yours</h3><p data-i18n="pr.3p">Files are used only for your order and deleted after 30 days.</p></div>
+        <div class="card"><h3 data-i18n="pr.3t">Your data stays yours</h3><p data-i18n="pr.3p">Files are used only for your order and deleted after 10 days.</p></div>
       </div>
     </div>
   </section>
@@ -210,7 +211,7 @@ footer nav{display:flex;flex-wrap:wrap;gap:18px}
 
 <footer>
   <div class="wrap row">
-    <span>© 2026 Plume &amp; Go · [PRÉNOM NOM], EI</span>
+    <span>© 2026 Plume &amp; Go · Gwalarn · [PRÉNOM NOM], EI</span>
     <nav aria-label="Legal">
       <a href="en/legal-notice.html" data-href-en="en/legal-notice.html" data-href-fr="fr/mentions-legales.html" data-i18n="ft.legal">Legal notice</a>
       <a href="en/terms.html" data-href-en="en/terms.html" data-href-fr="fr/cgv.html" data-i18n="ft.terms">Terms of sale</a>
@@ -218,6 +219,12 @@ footer nav{display:flex;flex-wrap:wrap;gap:18px}
       <a href="en/terms.html#8-right-of-withdrawal-consumers" data-href-en="en/terms.html#8-right-of-withdrawal-consumers" data-href-fr="fr/cgv.html#8-droit-de-retractation-clients-consommateurs" data-i18n="ft.withdraw">Withdraw from contract here</a>
       <a href="en/legal-notice.html#contact" data-href-en="en/legal-notice.html#contact" data-href-fr="fr/mentions-legales.html#contact" data-i18n="ft.contact">Contact</a>
     </nav>
+  </div>
+  <div class="wrap sister">
+    <span data-i18n="ft.sites">Gwalarn sites:</span>
+    <span>Plume &amp; Go</span>
+    <a href="https://gwalarn-studio.github.io/nextdesk/" data-href-en="https://gwalarn-studio.github.io/nextdesk/" data-href-fr="https://gwalarn-studio.github.io/nextdesk/fr/" data-i18n="ft.nd">NextDesk · careers and remote work</a>
+    <a href="https://gwalarn-studio.github.io/algoclair/en/" data-href-en="https://gwalarn-studio.github.io/algoclair/en/" data-href-fr="https://gwalarn-studio.github.io/algoclair/" data-i18n="ft.ac">AlgoClair · social media algorithms</a>
   </div>
 </footer>
 
@@ -266,13 +273,13 @@ const T = {
     "pr.1t":"Pas prêt ? Remboursé.","pr.1p":"Si un souci technique empêche l'affichage de votre résultat, nous le terminons sous 24 heures ou vous êtes remboursé intégralement.",
     "pr.2t":"Pas conforme ? Remboursé.","pr.2p":"Si le travail ne correspond pas à votre brief, signalez-le sous 7 jours et vous êtes remboursé intégralement.",
     "gd.eyebrow":"Guides à télécharger","gd.title":"Faites-le vous-même, à votre rythme.","gd.sub":"Un PDF clair et pratique, à télécharger juste après le paiement.","gd.fast":"Immédiat","gd.buy":"Acheter",
-    "pr.3t":"Vos données restent à vous","pr.3p":"Vos fichiers servent uniquement à votre commande et sont supprimés après 30 jours.",
+    "pr.3t":"Vos données restent à vous","pr.3p":"Vos fichiers servent uniquement à votre commande et sont supprimés après 10 jours.",
     "faq.title":"Questions fréquentes",
     "faq.1q":"Dans quelles langues travaillez-vous ?","faq.1p":"Français et anglais, et traduction entre les deux.",
     "faq.2q":"Comment envoyer mes documents ?","faq.2p":"Au moment de commander, un court formulaire vous demande de coller votre texte et de décrire votre besoin. Aucun compte nécessaire.",
     "faq.3q":"Puis-je avoir une facture ?","faq.3p":"Oui. Un reçu est envoyé par e-mail après chaque paiement, et une facture sur simple demande.",
     "faq.4q":"Et pour un travail plus long ?","faq.4p":"Commandez le service deux fois (par exemple deux blocs de 500 mots), ou écrivez-nous pour un devis.",
-    "ft.legal":"Mentions légales","ft.terms":"CGV","ft.privacy":"Confidentialité","ft.contact":"Contact","ft.withdraw":"Se rétracter du contrat ici",
+    "ft.legal":"Mentions légales","ft.sites":"Les sites Gwalarn :","ft.nd":"NextDesk · carrière et télétravail","ft.ac":"AlgoClair · algorithmes des réseaux sociaux","ft.terms":"CGV","ft.privacy":"Confidentialité","ft.contact":"Contact","ft.withdraw":"Se rétracter du contrat ici",
     "toast.soon":"Le paiement sera bientôt disponible. Ceci est un aperçu de la boutique."
   }
 };
